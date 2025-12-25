@@ -1,0 +1,56 @@
+---
+import { siteConfig } from '../config';
+---
+
+<header class="sticky top-0 z-50 bg-bg-secondary/95 backdrop-blur-sm border-b border-bg-tertiary">
+  <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20">
+      <!-- Logo / Brand Name -->
+      <a href="/" class="text-xl sm:text-2xl font-bold text-gold hover:text-gold-light transition-colors">
+        {siteConfig.business.name}
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="/" class="text-text-secondary hover:text-gold transition-colors font-medium">Home</a>
+        <a href="/#about" class="text-text-secondary hover:text-gold transition-colors font-medium">About</a>
+        <a href="/#services" class="text-text-secondary hover:text-gold transition-colors font-medium">Services</a>
+        <a href="/contact" class="text-text-secondary hover:text-gold transition-colors font-medium">Contact</a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-button"
+        class="md:hidden text-text-primary hover:text-gold transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      <div class="flex flex-col space-y-4">
+        <a href="/" class="text-text-secondary hover:text-gold transition-colors font-medium">Home</a>
+        <a href="/#about" class="text-text-secondary hover:text-gold transition-colors font-medium">About</a>
+        <a href="/#services" class="text-text-secondary hover:text-gold transition-colors font-medium">Services</a>
+        <a href="/contact" class="text-text-secondary hover:text-gold transition-colors font-medium">Contact</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
+

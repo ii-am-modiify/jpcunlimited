@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  /* Gold Color Palette */
+  --color-gold: #D4AF37;
+  --color-gold-light: #E5C158;
+  --color-gold-dark: #B8941F;
+  
+  /* Dark Theme Backgrounds */
+  --color-bg-primary: #0A0A0A;
+  --color-bg-secondary: #1A1A1A;
+  --color-bg-tertiary: #2A2A2A;
+  
+  /* Text Colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #F5F5F5;
+  --color-text-tertiary: #CCCCCC;
+}
+
+/* Global Styles */
+html {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Signature Font */
+.signature {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', 'Comic Sans MS', cursive;
+  font-style: italic;
+}
+
+/* Custom Utility Classes using CSS Variables */
+.bg-bg-primary {
+  background-color: var(--color-bg-primary);
+}
+
+.bg-bg-secondary {
+  background-color: var(--color-bg-secondary);
+}
+
+.bg-bg-tertiary {
+  background-color: var(--color-bg-tertiary);
+}
+
+.text-text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-text-tertiary {
+  color: var(--color-text-tertiary);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.border-bg-tertiary {
+  border-color: var(--color-bg-tertiary);
+}
+
+.hover\:text-gold:hover {
+  color: var(--color-gold);
+}
+
+.hover\:border-gold:hover {
+  border-color: var(--color-gold);
+}
+
+.focus\:border-gold:focus {
+  border-color: var(--color-gold);
+}
+
+.focus\:ring-gold:focus {
+  --tw-ring-color: var(--color-gold);
+}
+
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+.hover\:bg-gold:hover {
+  background-color: var(--color-gold);
+}
+
+.hover\:bg-gold-light:hover {
+  background-color: var(--color-gold-light);
+}
+
+.from-bg-primary {
+  --tw-gradient-from: var(--color-bg-primary);
+  --tw-gradient-to: rgb(10 10 10 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-bg-secondary {
+  --tw-gradient-via: var(--color-bg-secondary);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to);
+}
+
+.to-bg-primary {
+  --tw-gradient-to: var(--color-bg-primary);
+}
+
+.from-gold-dark {
+  --tw-gradient-from: var(--color-gold-dark);
+  --tw-gradient-to: rgb(184 148 31 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-gold {
+  --tw-gradient-to: var(--color-gold);
+}
+
+.text-bg-primary {
+  color: var(--color-bg-primary);
+}
+
+.hover\:text-bg-primary:hover {
+  color: var(--color-bg-primary);
+}
+
+.text-gold-light {
+  color: var(--color-gold-light);
+}
+
+.bg-bg-secondary\/95 {
+  background-color: rgba(26, 26, 26, 0.95);
+}
+
