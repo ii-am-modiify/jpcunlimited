@@ -1,8 +1,16 @@
 import type { APIRoute } from 'astro';
-import { Resend } from 'resend';
 import { siteConfig } from '../../config';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy load Resend to avoid module-level initialization issues
+const getResend = async () => {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error('RESEND_API_KEY environment variable is not set');
+  }
+  // Dynamic import to avoid module-level initialization
+  const { Resend } = await import('resend');
+  return new Resend(apiKey);
+};
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -53,13 +61,16 @@ export const POST: APIRoute = async ({ request }) => {
     if (!process.env.RESEND_API_KEY) {
       console.error('RESEND_API_KEY not configured');
       return new Response(
-        JSON.stringify({ error: 'Email service not configured. Please set RESEND_API_KEY environment variable.' }),
+        JSON.stringify({ error: 'Email service not configured. Please set RESEND_API_KEY environment variable in Vercel project settings.' }),
         {
           status: 500,
           headers: { 'Content-Type': 'application/json' },
         }
       );
     }
+
+    // Initialize Resend client (lazy loaded)
+    const resend = await getResend();
 
     // Create email content
     const subject = `New Contact Form Submission from ${name} - JPC Unlimited`;
