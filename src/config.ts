@@ -43,7 +43,7 @@ export const siteConfig = {
   
   // Contact
   contact: {
-    email: "alainvartanian95@gmail.com",
+    email: "jpcunlimited@gmail.com",
     phone: "727-314-3362",
   },
 };
