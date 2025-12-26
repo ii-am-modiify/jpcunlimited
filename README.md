@@ -97,15 +97,47 @@ The homepage follows the StoryBrand 2.0 framework:
 5. Services (Solutions)
 6. FAQ (Objection Handling)
 
+## Email Configuration (Contact Form)
+
+The contact form uses [Resend](https://resend.com) for sending emails. To set it up:
+
+1. **Create a Resend account** at https://resend.com (free tier available)
+2. **Get your API key** from the Resend dashboard
+3. **Set environment variables**:
+   - `RESEND_API_KEY` - Your Resend API key
+   - `CONTACT_EMAIL` - Email address where contact form submissions should be sent
+   - `RESEND_FROM_EMAIL` - The "from" email address (must be verified in Resend, or use `onboarding@resend.dev` for testing)
+
+### Local Development
+
+Create a `.env` file in the project root:
+
+```env
+RESEND_API_KEY=re_xxxxxxxxxxxxx
+CONTACT_EMAIL=your-email@example.com
+RESEND_FROM_EMAIL=onboarding@resend.dev
+```
+
+### Production (Vercel)
+
+Add these environment variables in Vercel:
+1. Go to your project settings
+2. Navigate to "Environment Variables"
+3. Add the three variables listed above
+
+**Note**: You can also set `contact.email` in `src/config.ts` instead of using `CONTACT_EMAIL` environment variable.
+
 ## Deployment
 
-This site is configured for static site deployment. You can deploy to:
-- Vercel
-- Netlify
-- GitHub Pages
-- Any static hosting service
+This site is configured for server-side rendering with Vercel. You can deploy to:
+- **Vercel** (recommended) - Automatic deployment from GitHub
+- Other platforms that support Astro server mode
 
-Simply run `npm run build` and deploy the `dist/` folder.
+### Vercel Deployment
+
+1. Connect your GitHub repository to Vercel
+2. Add environment variables (see Email Configuration above)
+3. Vercel will automatically detect Astro and deploy
 
 ## Notes
 
@@ -113,4 +145,5 @@ Simply run `npm run build` and deploy the `dist/` folder.
 - Update contact information in `src/config.ts`
 - Add favicon in `public/favicon.svg`
 - Customize FAQ content as needed
+- Set up Resend account and environment variables for contact form to work
 
